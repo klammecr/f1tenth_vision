@@ -4,22 +4,12 @@ Welcome to the Vision Lab. There are four parts in this lab. Part 1-3 are quite 
 
 ## I. Learning Goals
 
-- Use of v4l2 to access and control camera device.
 - Camera calibration with OpenCV
 - Distance measurement with object on the ground
 - Training and Deployment of an object detection with TensorRT
 
-## II. Use cameras on Linux system
 
-As we have discussed in the lecture, in Linux cameras are mounted as file systems. Connect the Realsense camera you have received to Jetson and check if you can see three outputs with the `ls /dev/video*` command. Use OpenCV to capture RGB frames from `/dev/video2`.
-
-During racing, we want to receive camera frames as fast as possible. Realsense camera only operates at 60Hz with a 960x540 resolution. Please modify your code so that we have receiving 960x540 images at 60Hz.
-
-<!-- Then write a ROS2 node that captures RGB frame from the Realsense camera and publish it onto `/rgb_img` channel using `sensor_msgs/Image` message type. -->
-
-Save this part of the code as 'camera.py' or 'camera.cpp'.
-
-## III. Camera Calibration & Distance Measurement
+## II. Camera Calibration & Distance Measurement
 
 In this part, you will develop a distance measurement algorithm with the assumption that the camera frame axes are overlapping the car frame axes with a height H on the Z axis of car frame.
 
@@ -40,7 +30,7 @@ Note 3: All images are in 960x540 resolution.
 
 Save this part of the code as 'distance.py' or 'distance.cpp'.
 
-## IV. Lane Detection
+## III. Lane Detection
 
 In this part, you will develop a lane detection algorithm with classical computer vision. In the 'resource' folder, there is one image with yellow lane marks. Your task is to detect the lane maskers as good as possible, using HSV color space, `findContours` or any other functions. The example with lawn detection in the lecture is a path to follow. 
 
@@ -51,7 +41,7 @@ Please write a function that take in an image and draw green edges around or gre
 
 Save this part of the code as 'lane.py' or 'lane.cpp'.
 
-## V. Object Detection Network Training & Deployment
+## IV. Object Detection Network Training & Deployment
 
 In this part, you will first train an object detection nerual network and deploy it onto the F110 car. 
 
@@ -79,49 +69,19 @@ After you are done with training the network, convert it into a TensorRT engine 
 
 Save this part of the code as 'convert_trt.py' or 'convert_trt.cpp' and 'detection.py' or 'detection.cpp'.
 
-#### Install Pytorch
-If your Jetson doesn't have Pytorch, follow [this](https://docs.nvidia.com/deeplearning/frameworks/install-pytorch-jetson-platform/index.html) to install Pytorch.
-
-#### Install ONNX and matplotlib
-```
-sudo apt-get install python3-matplotlib
-sudo apt-get install python3-pip libprotoc-dev protobuf-compiler
-pip3 install onnx
-```
-
-#### Install pycuda and set up TensorRT
-If your Jetson doesn't have pycuda, follow [this](https://docs.donkeycar.com/guide/robot_sbc/tensorrt_jetson_nano/) to set up TensorRT and install pycuda. (Only do Step 2)
-
-#### Implementation Tips
-
-1. In your deployment order, do not import Pytorch. Use numpy to reshape the output to (5, 5, 10) if you use my code.
-
-2. Convert the the engine using FP32 and FP16 mode and compare the speed difference. See `submission.md`.
- 
-## VI. Combining the Functions
-
-In the final part, write a complete package that takes image from the camera, run the lane detection and object detection on the image, then use the center point of the botton bounding box edge from object detection to calcuate the distance to the object. Please note that the image resolution should be 960x540 and your detection resolution may be smaller.
-
-Save this part of the code as 'integrated.py' or 'integrated.cpp'.
-
-<!-- In the final part, we will write another ROS node that subscribes to `/rgb_img` channel for an image. Run the lane detection and object detection on the image. Then use the center point of the botton bounding box edge from object detection to calcuate the distance to the object. Please note that the image resolution should be 960x540 and your detection resolution is smaller. -->
-
-<!-- Publish the result image with lane detection and object detection indicators to the `/det_img` channel. Publish the distance to detections to the `/det_distance` channel. -->
 
 ## VII. Deliverables and Submission
 
-Push your finished code onto github repo. Make you name the parts as instructed.
+Zip your finished code onto Canvas. Name the parts as instructed.
 
 Please follow the `submission.md` in the Github repo.
 
 ## VIII: Grading Rubric
 
-- Accessing Image: **10** Points
-- Distance Measurement: **15** Points
-- Lane Detection: **20** Points
+- Distance Measurement: **25** Points
+- Lane Detection: **30** Points
 - Network Training: **15** Points
 - TensorRT Deployment: **30** Points
-- Integration: **10** Points
 
 ## Other References
 1. [tutorial](https://learnopencv.com/how-to-convert-a-model-from-pytorch-to-tensorrt-and-speed-up-inference/)
