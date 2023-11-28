@@ -82,6 +82,10 @@ pip3 install onnx
 #### Install pycuda and set up TensorRT
 If your Jetson doesn't have pycuda, follow [this](https://docs.donkeycar.com/guide/robot_sbc/tensorrt_jetson_nano/) to set up TensorRT and install pycuda. (Only do Step 2)
 
+#### Deliverable
+
+Convert the the engine using FP32 and FP16 mode and compare the speed difference. See `submission.md`.
+
 
 ## VII. Deliverables and Submission
 
