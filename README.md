@@ -74,7 +74,7 @@ Save this part of the code as 'convert_trt.py' or 'convert_trt.cpp' and 'detecti
 
 Zip your finished code onto Canvas. Name the parts as instructed.
 
-Please follow the `submission.md` in the Github repo.
+Please fill the `submission.md` in this Github repo.
 
 ## VIII: Grading Rubric
 
