@@ -1,2 +1,4 @@
 lightning_logs*
 f110_dataset*
+*.pt
+models*

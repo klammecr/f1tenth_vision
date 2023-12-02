@@ -18,10 +18,16 @@ Process:
 ![](output/contour_img.png)
 
 ## Integrated Object Detection + Distance Calculation Result Image
-(FILL ME IN)
+There were no instructions for this
 
 ## Nerual Network Training & Testing Loss Plot
-(FILL ME IN)
+We used the YOLO architecture here as a modification to get improved accuracy. 
+
+![](output/train_loss.png)
+
+![](output/val_loss.png)
+
+![](output/val_acc.png)
 
 ## Is FP16 faster? Why?
 FP16 inference time (ms): (FILL ME IN)

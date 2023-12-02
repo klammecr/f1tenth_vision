@@ -56,7 +56,7 @@ if __name__ == "__main__":
     ## Training Process
     batch_size = 64
     epochs = 100
-    lr = 1e-3# Setting this kinda large since we don't have much data
+    lr = 2.5e-3# Setting this kinda large since we don't have much data
 
     # Train and validation loaders
     f110    = F110Lightning(lr, anchor_size, input_dim, final_dim)
