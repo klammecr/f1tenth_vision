@@ -20,7 +20,7 @@ if __name__ == "__main__":
     print(len(labels))
 
     # Parameters
-    final_dim = [5, 10]
+    final_dim = [6, 10]
     input_dim = [180, 320]
     anchor_size = [(input_dim[0] / final_dim[0]), (input_dim[1] / final_dim[1])]
     arr = np.arange(labels.shape[0])
@@ -54,9 +54,9 @@ if __name__ == "__main__":
     # DisplayLabel(np.transpose(image[0].numpy(), (1, 2, 0)), label)
 
     ## Training Process
-    batch_size = 100
+    batch_size = 64
     epochs = 100
-    lr = 2.5e-2 # Setting this kinda large since we don't have much data
+    lr = 1e-3# Setting this kinda large since we don't have much data
 
     # Train and validation loaders
     f110    = F110Lightning(lr, anchor_size, input_dim, final_dim)
